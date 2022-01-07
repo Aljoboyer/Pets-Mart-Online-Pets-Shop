@@ -1,56 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import AddPetsData from './Components/Adminpanel/AddpetsData/AddPetsData';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import UserHome from './Components/UserPages/UserHome/UserHome';
+import PetOrderDetails from './Components/UserPages/PetOrderDetails/PetOrderDetails';
+import YourCarts from './Components/UserPages/YourCarts/YourCarts';
+import Login from './Components/Shared/Login/Login';
+import Register from './Components/Shared/Register/Register';
+import Privateroute from './Components/Shared/PrivateRoute/PrivateRoute';
+import AdminDashboard from './Components/Adminpanel/AdminDashboard/AdminDashboard';
+import DashboardHome from './Components/Adminpanel/AdminDashboard/DashboardHome';
+import MakeAdmin from './Components/Adminpanel/MakeAdmin/MakeAdmin';
+import ManageAccessoriesOrder from './Components/Adminpanel/ManageAccessoriesOrder/ManageAccessoriesOrder';
+import ManagePetsdata from './Components/Adminpanel/ManagePetsData/ManagePetsdata';
+import ManagePetsOrder from './Components/Adminpanel/ManagePetsOrder/ManagePetsOrder';
+import YourPetsOrders from './Components/UserPages/YourPetsOrders/YourPetsOrders';
+import YourAccessoriesOrders from './Components/UserPages/YourAccessoriesOrder/YourAccessoriesOrders';
+import Footer from './Components/UserPages/Footer/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="container-fluid">
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<UserHome/>}/>
+            <Route path="/PetOrderDetails/:id" element={<Privateroute><PetOrderDetails/></Privateroute>}/>
+            <Route path="/YourCarts" element={<YourCarts/>}/>
+            <Route path="/petorder" element={<YourPetsOrders/>}/>
+            <Route path="/accessoriesOrder" element={<YourAccessoriesOrders/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
+            
+            <Route path="/adminDashboard" element={<AdminDashboard/>}>
+                <Route path="/adminDashboard" element={<DashboardHome/>}/>
+                <Route path="/adminDashboard/addpets" element={<AddPetsData/>}/>
+                <Route path="/adminDashboard/MakeAdmin" element={<MakeAdmin/>}/>
+                <Route path="/adminDashboard/ManageAccessoriesOrder" element={<ManageAccessoriesOrder/>}/>
+                <Route path="/adminDashboard/ManagePetsdata" element={<ManagePetsdata/>}/>
+                <Route path="/adminDashboard/ManagePetsOrder" element={<ManagePetsOrder/>}/>
+            </Route>
+          </Routes>
+          <Footer></Footer>
+      </BrowserRouter>
     </div>
   );
 }

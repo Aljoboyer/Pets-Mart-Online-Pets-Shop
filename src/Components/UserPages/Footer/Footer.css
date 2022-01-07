@@ -1,0 +1,29 @@
+.Footer_Row, .Accordin_Item{
+    background-color: rgb(0, 25, 82);;
+}
+.Accordin_Header{
+    /* color: #6504b5; */
+}
+.Footer_Text{
+    color: white;
+    cursor: pointer;
+}
+.Footer_Btn{
+    padding: 10px 100px 10px 100px;
+    border: white solid 2px;
+    border-radius: 30px;
+}
+.Lower_Footer{
+    background-color: #0c0152;
+    color: #a6a5ff;
+}
+.Footer_Icon{
+    cursor: pointer;
+}
+@media only screen and (max-width: 688px){
+    .Footer_Btn{
+        padding: 10px 60px 10px 60px;
+        border: white solid 2px;
+        border-radius: 30px;
+    }
+}

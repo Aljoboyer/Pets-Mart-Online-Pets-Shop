@@ -1,0 +1,15 @@
+.Pet_Add_Form{
+    border: 5px solid rgb(255, 43, 78);
+}
+.inputs{
+    border-top: none;
+    border-right: none;
+    border-bottom: #16fdf2 inset 4px;
+    border-left: #16fdf2 inset 4px;
+    outline: none;
+    width: 100%;
+    transition: 0.5s ease-in-out;
+}
+.inputs:focus{
+    transform: scale(0.9);
+}
