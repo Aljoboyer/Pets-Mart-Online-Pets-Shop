@@ -2,10 +2,10 @@ import { configureStore } from '@reduxjs/toolkit';
 import PetReducer from '../features/PetSlice/PetsSlice';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
+import localforage from 'localforage';
 const persistConfig = {
   key: 'pet-store',
-  storage
+  storage: localforage
 }
 
 const persistedReducer = persistReducer(persistConfig, PetReducer);

@@ -8,10 +8,10 @@ const ClothANDHealty = () => {
         <Row className="container-fluid g-3 pt-4 mt-4">
             <Col className="p-4" lg={6} md={6} sm={12}>
                 <Row >
-                    <Col className='healthytextcolam d-flex align-items-center' lg={6} md={6} sm={12}>
+                    <Col className='healthytextcolam d-flex align-items-center justify-content-center' lg={6} md={6} sm={12}>
                         <div>
                         <h3 className='fw-bold fs-2 my-2'>HEALTHY HABITS FOR YOUR PET START HERE</h3>
-                    <Button className='regularwhitebtn fw-bold'>SHOP DOG</Button><Button className='regularwhitebtn fw-bold mx-2'>SHOP CAT</Button>
+                    <Button className='regularwhitebtn fw-bold mt-2'>SHOP DOG</Button><Button className='regularwhitebtn fw-bold mx-2 mt-2'>SHOP CAT</Button>
                         </div>
                     </Col>
                     <Col className='healthyimgcolam p-4 mt-4' lg={6} md={6} sm={12}>

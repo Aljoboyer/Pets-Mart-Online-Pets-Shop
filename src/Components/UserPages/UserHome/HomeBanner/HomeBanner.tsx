@@ -12,7 +12,7 @@ const HomeBanner = () => {
                     <div className='p-4'>
                         <h1 className="hometitle">Pets Are Family</h1>
                         <h4 className='regulartext my-4'>Get Personalized Pet Matches <br /> AND Celebrate all the memories with </h4>
-                        <Button className='homebanner-btn'>SHOP NOW</Button>
+                        <Button className='homebanner-btn fw-bold'>SHOP NOW</Button>
                     </div>
                 </Col>
                 <Col className="homerightcolam" lg={6} sm={12} md={6}>

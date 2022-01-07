@@ -22,6 +22,7 @@ import ManagePetsOrder from './Components/Adminpanel/ManagePetsOrder/ManagePetsO
 import YourPetsOrders from './Components/UserPages/YourPetsOrders/YourPetsOrders';
 import YourAccessoriesOrders from './Components/UserPages/YourAccessoriesOrder/YourAccessoriesOrders';
 import Footer from './Components/UserPages/Footer/Footer';
+import PetSearchItems from './Components/UserPages/PetSearchItems/PetSearchItems';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/accessoriesOrder" element={<YourAccessoriesOrders/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/PetSearchItems" element={<PetSearchItems/>}/>
             
             <Route path="/adminDashboard" element={<AdminDashboard/>}>
                 <Route path="/adminDashboard" element={<DashboardHome/>}/>

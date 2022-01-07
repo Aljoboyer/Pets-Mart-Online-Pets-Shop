@@ -44,8 +44,7 @@ const PetOrderDetails: React.FC = () => {
     const alldata = [...allpets, ...allAccessories]
 
     const pet: PetObjData = alldata?.find(data => data._id === id)!
-
-
+    console.log('petdata',pet)
     //for order pet 
     const onSubmit: SubmitHandler<Inputs> = data => {
         const newdata: PetOrderData = {...pet,...data, email: user?.email, orderDate: new Date().toLocaleDateString()};

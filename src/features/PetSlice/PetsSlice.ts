@@ -1,9 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { PetObjData } from '../../Components/UserPages/Allpets/PetModel';
 import { CartData } from '../../Components/UserPages/Payments/Checkoutform';
 import {OrderModels} from '../../Components/UserPages/PetOrderDetails/OrderModel';
 import { PetOrderData } from '../../Components/UserPages/PetOrderDetails/PetOrderDetails';
+import { SearchData } from '../../Components/UserPages/UserHome/PetSearchForm/PetSearchForm';
 
 //posting Pets data to database
 export const PostPets = createAsyncThunk(
@@ -116,6 +118,14 @@ export const AccessoriesOrderDelete = createAsyncThunk(
     return response
   }
 )
+//Geting accessories order from database
+export const GetSearchPets = createAsyncThunk(
+  'Pets/getSearchPets',
+  async (data: SearchData) => {
+    const response = await fetch(`http://localhost:5000/GetSearchPets?searchdata=${data}`).then(res=> res.json()).catch(error => {console.log(error)});
+    return response
+  }
+)
 // Define a type for the slice state
 interface PetState {
   petamount: number
@@ -125,7 +135,8 @@ interface PetState {
   carts: OrderModels[],
   alldata: PetObjData[],
   accessoriesOrder: CartData[],
-  petorder: PetOrderData[]
+  petorder: PetOrderData[],
+  allsearchdata: PetObjData[]
 }
 
 // Define the initial state using that type
@@ -137,7 +148,8 @@ const initialState: PetState = {
   carts: [],
   alldata: [],
   accessoriesOrder: [],
-  petorder: []
+  petorder: [],
+  allsearchdata: []
 }
 
 export const PetReducer = createSlice({
@@ -166,8 +178,10 @@ export const PetReducer = createSlice({
     },
     ClearCart: (state, action: PayloadAction<undefined>) => {
       state.carts = []
+    },
+    FindData: (state, action: PayloadAction<SearchData | undefined>) => {
+      state.allsearchdata = state.allpets.filter(pet => pet.age === action?.payload?.age && pet.gender === action?.payload.gender && pet.type === action?.payload.type) 
     }
-
   },
 
   extraReducers: (builder) => {
@@ -222,6 +236,6 @@ export const PetReducer = createSlice({
   },
 });
 
-export const { increment, decrement, addCart, RemoveItemFromCart, ClearCart } = PetReducer.actions;
+export const { increment, decrement, addCart, RemoveItemFromCart, ClearCart, FindData } = PetReducer.actions;
 
 export default PetReducer.reducer;
