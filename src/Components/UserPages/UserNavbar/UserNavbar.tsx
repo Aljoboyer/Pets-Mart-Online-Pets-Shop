@@ -36,7 +36,7 @@ const UserNavbar: React.FC = () => {
                     <Col className="d-flex align-items-center" lg={6} md={6} sm={12}>
                       <Row className='g-4'>
                         <Col as={Link} to="/FindDog" className="navtext fw-bold" lg={12} md={6} sm={12}>FIND DOG</Col>
-                        <Col className="navtext fw-bold" lg={12} md={6} sm={12}>DOGS CARE</Col>
+                        <Col as={Link} to="/DogCare" className="navtext fw-bold" lg={12} md={6} sm={12}>DOGS CARE</Col>
                         <Col className="navtext fw-bold" lg={12} md={6} sm={12}>DOGS TRAINING</Col>
                       </Row>
                     </Col>

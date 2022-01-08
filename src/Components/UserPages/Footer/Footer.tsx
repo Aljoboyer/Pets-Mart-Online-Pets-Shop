@@ -3,8 +3,8 @@ import {Row, Col, Accordion} from 'react-bootstrap'
 import './Footer.css'
 const Footer = () => {
     return (
-        <Row className="container-fluid">
-            <Row className="justify-content-center align-items-center Footer_Row p-4">
+        <Row className="container-fluid Footer_Row">
+            <Row className="justify-content-center align-items-center  p-4">
                 <Col lg={4} md={6} sm={12}>
                 <Accordion>
                     <Accordion.Item className='Accordin_Item' eventKey="0">

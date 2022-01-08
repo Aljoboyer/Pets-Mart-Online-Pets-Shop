@@ -29,6 +29,7 @@ import CatsFood from './Components/UserPages/Cates/CatsFood/CatsFood';
 import DogsFood from './Components/UserPages/Dogs/DogsFood/DogsFood';
 import CatAccessories from './Components/UserPages/Cates/CatAccessories/CatAccessories';
 import DogsAccessories from './Components/UserPages/Dogs/DogAccessories/DogAccessories';
+import DogCare from './Components/UserPages/Dogs/DogCare/DogCare';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
             <Route path="/DogsFood" element={<DogsFood/>}/>
             <Route path="/CatAccessories" element={<CatAccessories/>}/>
             <Route path="/DogsAccessories" element={<DogsAccessories/>}/>
+            <Route path="/DogCare" element={<DogCare/>}/>
             
             <Route path="/adminDashboard" element={<AdminDashboard/>}>
                 <Route path="/adminDashboard" element={<DashboardHome/>}/>

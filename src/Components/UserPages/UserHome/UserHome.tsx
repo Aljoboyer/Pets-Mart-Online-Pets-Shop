@@ -12,6 +12,7 @@ const UserHome: React.FC = () => {
             <HomeBanner></HomeBanner>
             <ClothANDHealty></ClothANDHealty>
             <PetAccessories></PetAccessories>
+            
         </div>
     );
 };
