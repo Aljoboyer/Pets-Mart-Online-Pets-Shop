@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { PetObjData } from '../../Components/UserPages/Allpets/PetModel';
+import { PetTypeData } from '../../Components/UserPages/Dogs/FindDog/FindDog';
 import { CartData } from '../../Components/UserPages/Payments/Checkoutform';
 import {OrderModels} from '../../Components/UserPages/PetOrderDetails/OrderModel';
 import { PetOrderData } from '../../Components/UserPages/PetOrderDetails/PetOrderDetails';
@@ -118,11 +118,11 @@ export const AccessoriesOrderDelete = createAsyncThunk(
     return response
   }
 )
-//Geting accessories order from database
-export const GetSearchPets = createAsyncThunk(
-  'Pets/getSearchPets',
-  async (data: SearchData) => {
-    const response = await fetch(`http://localhost:5000/GetSearchPets?searchdata=${data}`).then(res=> res.json()).catch(error => {console.log(error)});
+//Geting specific types pets
+export const GetPetsType = createAsyncThunk(
+  'Pets/petPetsType',
+  async (data: PetTypeData  | string) => {
+    const response = await fetch(`http://localhost:5000/GetPetsType?filterdata=${data}`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -136,7 +136,8 @@ interface PetState {
   alldata: PetObjData[],
   accessoriesOrder: CartData[],
   petorder: PetOrderData[],
-  allsearchdata: PetObjData[]
+  allsearchdata: PetObjData[],
+  petstype: PetObjData[]
 }
 
 // Define the initial state using that type
@@ -149,7 +150,8 @@ const initialState: PetState = {
   alldata: [],
   accessoriesOrder: [],
   petorder: [],
-  allsearchdata: []
+  allsearchdata: [],
+  petstype: []
 }
 
 export const PetReducer = createSlice({
@@ -232,6 +234,9 @@ export const PetReducer = createSlice({
         '',
         'success'
       )
+    })
+    builder.addCase(GetPetsType.fulfilled, (state, action: PayloadAction<PetObjData[]>) => {
+        state.petstype = action.payload
     })
   },
 });

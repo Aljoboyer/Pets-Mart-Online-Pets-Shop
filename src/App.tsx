@@ -23,6 +23,12 @@ import YourPetsOrders from './Components/UserPages/YourPetsOrders/YourPetsOrders
 import YourAccessoriesOrders from './Components/UserPages/YourAccessoriesOrder/YourAccessoriesOrders';
 import Footer from './Components/UserPages/Footer/Footer';
 import PetSearchItems from './Components/UserPages/PetSearchItems/PetSearchItems';
+import FindDog from './Components/UserPages/Dogs/FindDog/FindDog';
+import FindCat from './Components/UserPages/Cates/FindCat/FindCat';
+import CatsFood from './Components/UserPages/Cates/CatsFood/CatsFood';
+import DogsFood from './Components/UserPages/Dogs/DogsFood/DogsFood';
+import CatAccessories from './Components/UserPages/Cates/CatAccessories/CatAccessories';
+import DogsAccessories from './Components/UserPages/Dogs/DogAccessories/DogAccessories';
 
 function App() {
   return (
@@ -37,6 +43,12 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/PetSearchItems" element={<PetSearchItems/>}/>
+            <Route path="/FindDog" element={<FindDog/>}/>
+            <Route path="/FindCat" element={<FindCat/>}/>
+            <Route path="/CatsFood" element={<CatsFood/>}/>
+            <Route path="/DogsFood" element={<DogsFood/>}/>
+            <Route path="/CatAccessories" element={<CatAccessories/>}/>
+            <Route path="/DogsAccessories" element={<DogsAccessories/>}/>
             
             <Route path="/adminDashboard" element={<AdminDashboard/>}>
                 <Route path="/adminDashboard" element={<DashboardHome/>}/>

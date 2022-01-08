@@ -8,3 +8,15 @@
 .navimg{
     border-radius: 50%;
 }
+.navtext{
+    color: rgb(13, 36, 88);
+    text-decoration: none;
+}
+.droprow{
+    width: 400px;
+}
+@media only screen and (max-width: 688px){
+    .droprow{
+        width: 230px;
+    }
+}

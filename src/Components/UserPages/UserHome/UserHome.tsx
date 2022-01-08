@@ -1,5 +1,4 @@
 import React from 'react';
-import Allpets from '../Allpets/Allpets';
 import UserNavbar from '../UserNavbar/UserNavbar';
 import PetAccessories from '../AllPetAccessories/PetAccessories'
 import NavRow from '../UserNavbar/NavRow';
@@ -12,7 +11,6 @@ const UserHome: React.FC = () => {
             <UserNavbar></UserNavbar>
             <HomeBanner></HomeBanner>
             <ClothANDHealty></ClothANDHealty>
-            <Allpets></Allpets>
             <PetAccessories></PetAccessories>
         </div>
     );

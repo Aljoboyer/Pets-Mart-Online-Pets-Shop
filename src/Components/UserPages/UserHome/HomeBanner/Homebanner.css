@@ -33,10 +33,6 @@
     outline: none;
 }
 .searchrow{
-    position: absolute;
-    z-index: 1;
-    bottom: 10px;
-    left: 120px;
     padding: 50px;
 }
 @media only screen and (max-width: 688px){
@@ -46,10 +42,7 @@
         font-family: 'Charm', cursive;
         padding: 10px
     }
-    .searchrow{
-        position: initial;
-        padding: 10px;
-    }
+  
     .homebanner-btn{
         background-color: white;
         border: none;
