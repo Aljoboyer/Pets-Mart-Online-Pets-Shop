@@ -26,6 +26,18 @@
     cursor: pointer;
     text-decoration: underline;
 }
+.training-title{
+ cursor: pointer;
+}
+.training-title:hover{
+    color: #ee4443;
+}
+.train-icon{
+    color: #0088ca;
+}
+.spantext{
+    font-size: 14px;
+}
 @media only screen and (max-width: 688px){
     .dogcaretitle{
         font-size: 30px;

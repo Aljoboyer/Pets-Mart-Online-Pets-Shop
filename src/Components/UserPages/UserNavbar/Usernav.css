@@ -15,6 +15,16 @@
 .droprow{
     width: 400px;
 }
+.nav_btn{
+    border: solid 2px rgb(13, 36, 88);
+    color: rgb(13, 36, 88);
+}
+.right_food_colam{
+    background-color: white;
+}
+.right_row{
+    background-color: #93E5FD;;
+}
 @media only screen and (max-width: 688px){
     .droprow{
         width: 230px;

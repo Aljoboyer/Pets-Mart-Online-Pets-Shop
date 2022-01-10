@@ -30,6 +30,9 @@ import DogsFood from './Components/UserPages/Dogs/DogsFood/DogsFood';
 import CatAccessories from './Components/UserPages/Cates/CatAccessories/CatAccessories';
 import DogsAccessories from './Components/UserPages/Dogs/DogAccessories/DogAccessories';
 import DogCare from './Components/UserPages/Dogs/DogCare/DogCare';
+import DogsTraining from './Components/UserPages/Dogs/DogsTraining/DogsTraining';
+import CatCare from './Components/UserPages/Cates/CatCare/CatCare';
+import CatTraining from './Components/UserPages/Cates/CatTraining/CatTraining';
 
 function App() {
   return (
@@ -51,6 +54,10 @@ function App() {
             <Route path="/CatAccessories" element={<CatAccessories/>}/>
             <Route path="/DogsAccessories" element={<DogsAccessories/>}/>
             <Route path="/DogCare" element={<DogCare/>}/>
+            <Route path="/DogsTraining" element={<DogsTraining/>}/>
+            <Route path="/CatCare" element={<CatCare/>}/>
+            <Route path="/CatTraining" element={<CatTraining/>}/>
+            
             
             <Route path="/adminDashboard" element={<AdminDashboard/>}>
                 <Route path="/adminDashboard" element={<DashboardHome/>}/>

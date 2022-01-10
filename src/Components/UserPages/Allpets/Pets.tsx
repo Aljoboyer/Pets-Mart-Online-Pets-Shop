@@ -23,7 +23,7 @@ const Pets: React.FC<props> = ({pet}) => {
         </Card.Text>
         </Card.Body>
         <Card.Footer>
-        <Link to={`/PetOrderDetails/${_id}`}><Button className="btn btn-warning text-dark fw-bold">ORDER NOW</Button></Link>
+        <Link to={`/PetOrderDetails/${_id}`}><button className="loginbtn fw-bold p-2">ORDER NOW</button></Link>
         </Card.Footer>
         </Card>
        </Col>

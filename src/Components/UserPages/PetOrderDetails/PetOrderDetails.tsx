@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col, Button} from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -8,6 +8,8 @@ import UserNavbar from '../UserNavbar/UserNavbar';
 import { useForm, SubmitHandler } from "react-hook-form";
 import { PetObjData } from '../Allpets/PetModel';
 import useFirebase from '../../Shared/Authentication/UseFirebase';
+import NavRow from '../UserNavbar/NavRow';
+import RightFood from './RightFood';
 
 interface Inputs  {
     username: string,
@@ -37,14 +39,15 @@ const PetOrderDetails: React.FC = () => {
     const { register,reset, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const {id} = useParams();
     const dispatch = useDispatch();
-    const {user} = useFirebase()
+    const {user} = useFirebase();
+
     const allpets = useAppSelector((state) => state.petstore.allpets);
     const allAccessories = useAppSelector((state) => state.petstore.allAccessories);
 
     const alldata = [...allpets, ...allAccessories]
-
     const pet: PetObjData = alldata?.find(data => data._id === id)!
-    console.log('petdata',pet)
+
+
     //for order pet 
     const onSubmit: SubmitHandler<Inputs> = data => {
         const newdata: PetOrderData = {...pet,...data, email: user?.email, orderDate: new Date().toLocaleDateString()};
@@ -74,6 +77,7 @@ const PetOrderDetails: React.FC = () => {
     }
     return (
         <div className='container-fluid'>
+            <NavRow></NavRow>
             <UserNavbar></UserNavbar>
            {
                pet?.category === 'pets' ?
@@ -85,27 +89,29 @@ const PetOrderDetails: React.FC = () => {
                    <p className='text-primary fw-bold'>{pet.clan}</p>
                    <p >{pet.short} {pet.details}</p>
                </Col>
-               <Col lg={5} md={6} sm={12}>
+               <Col lg={5} md={6} sm={12} className='allform'>
                    <form className="p-4" onSubmit={handleSubmit(onSubmit)}>
                        <Row className="g-3 my-4">
                            <Col lg={9} sm={12} md={6}>
-                           <input className='inputs my-2 fw-bold text-info fs-4' placeholder="Your Name" type="text" {...register("username", { required: true })} />
+                           <input className='inputs my-2 fw-bold regularcolor fs-6' placeholder="Your Name" type="text" {...register("username", { required: true })} />
+                           </Col>
+                       {errors.username && <span>This field is required</span>}
+                       </Row>
+                       <Row className="g-3 my-4 ">
+                           <Col lg={9} sm={12} md={6}>
+                           <textarea className='inputs my-2 fw-bold regularcolor fs-6' placeholder="Your Location" {...register("location", { required: true })} />
                            </Col>
                        {errors.username && <span>This field is required</span>}
                        </Row>
                        <Row className="g-3 my-4">
                            <Col lg={9} sm={12} md={6}>
-                           <textarea className='inputs my-2 fw-bold text-info fs-4' placeholder="Your Location" {...register("location", { required: true })} />
+                           <input className='inputs my-2 fw-bold regularcolor fs-6' placeholder="Your Phone" type="number" {...register("phone", { required: true })} />
                            </Col>
                        {errors.username && <span>This field is required</span>}
                        </Row>
-                       <Row className="g-3 my-4">
-                           <Col lg={9} sm={12} md={6}>
-                           <input className='inputs my-2 fw-bold text-info fs-4' placeholder="Your Phone" type="number" {...register("phone", { required: true })} />
-                           </Col>
-                       {errors.username && <span>This field is required</span>}
+                       <Row>
+                           <button type='submit' className='loginbtn w-75 fw-bold fs-6'> ORDER </button>
                        </Row>
-                       <Button type='submit' className='btn btn-dark fw-bold text-warning fs-6'>ORDER</Button>
                    </form>
                </Col>
                 </Row>
@@ -130,6 +136,7 @@ const PetOrderDetails: React.FC = () => {
                 </Col>
                  </Row>
            }
+           <RightFood></RightFood>
         </div>
     );
 };

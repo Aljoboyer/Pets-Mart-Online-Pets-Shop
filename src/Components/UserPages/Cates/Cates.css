@@ -1,0 +1,17 @@
+.catcare_row{
+    background-image: url('../../../Images/cats/cat-care-center.webp');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 70vh;
+}
+.center-title{
+    color: #77d2ff;
+    text-decoration: underline;
+}
+.catcare-title{
+    font-size: 60px;
+}
+.cat_train_colam{
+    background-color: rgb(13, 36, 88);
+}

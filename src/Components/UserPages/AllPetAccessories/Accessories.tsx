@@ -18,7 +18,7 @@ const Accessories: React.FC<Props> = ({accessories}) => {
         </Card.Text>
         </Card.Body>
         <Card.Footer>
-        <Link to={`/PetOrderDetails/${_id}`}><Button className="btn btn-warning text-dark fw-bold">BUY NOW</Button></Link>
+        <Link to={`/PetOrderDetails/${_id}`}><button className="loginbtn fw-bold p-2">BUY NOW</button></Link>
         </Card.Footer>
         </Card>
        </Col>

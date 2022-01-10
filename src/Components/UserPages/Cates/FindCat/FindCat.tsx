@@ -17,7 +17,6 @@ const FindCat = () => {
     },[dispatch, obj])
     const allcats = useAppSelector((state) => state.petstore.petstype)
 
-    console.log("allcats",allcats)
     return (
         <div className='container-fluid'>
             <NavRow></NavRow>

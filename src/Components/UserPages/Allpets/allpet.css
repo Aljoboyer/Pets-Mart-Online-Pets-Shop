@@ -7,7 +7,16 @@
     width: 400px;
     height: 450px;
 }
-
+.category_colam{
+    border: 2px solid #00205b;
+    border-radius: 25px;
+    cursor: pointer;
+    color: #00205b;
+}
+.category_colam:hover{
+    background-color: #00205b;
+    color: white;
+}
 @media only screen and (max-width: 688px){
     .petimg{
         width: 250px;

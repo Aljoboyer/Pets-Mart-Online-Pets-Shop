@@ -1,15 +1,41 @@
 .Pet_Add_Form{
-    border: 5px solid rgb(255, 43, 78);
+    border: 5px solid rgb(13, 36, 88);
+    border-radius: 15px;
 }
 .inputs{
     border-top: none;
     border-right: none;
-    border-bottom: #16fdf2 inset 4px;
-    border-left: #16fdf2 inset 4px;
+    border-bottom: rgb(13, 36, 88) inset 3px;
+    border-left: rgb(13, 36, 88) inset 3px;
+    border-radius: 10px;
     outline: none;
     width: 100%;
     transition: 0.5s ease-in-out;
 }
 .inputs:focus{
     transform: scale(0.9);
+}
+.loginbtn{
+    background-color: rgb(13, 36, 88);
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px 0px 10px 0px;
+}
+.allform{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.seeall_btn{
+    border: solid 1px rgb(13, 36, 88);
+    color: rgb(13, 36, 88);
+    border-radius: 15px;
+    padding: 15px 0px 15px 0px;
+}
+.adminnav{
+    background-color: rgb(13, 36, 88);
+}
+.sidenav{
+    border: solid rgb(13, 36, 88) 5px;
+    background-color: gold;
 }

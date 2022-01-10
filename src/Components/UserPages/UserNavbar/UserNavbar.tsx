@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Container, Nav, NavDropdown, Row, Col} from 'react-bootstrap';
+import {Navbar, Container, Nav, NavDropdown, Row, Col, DropdownButton} from 'react-bootstrap';
 import {Link, useNavigate} from 'react-router-dom';
 import { useAppSelector } from '../../../app/apphook';
 import useFirebase from '../../Shared/Authentication/UseFirebase';
@@ -37,7 +37,7 @@ const UserNavbar: React.FC = () => {
                       <Row className='g-4'>
                         <Col as={Link} to="/FindDog" className="navtext fw-bold" lg={12} md={6} sm={12}>FIND DOG</Col>
                         <Col as={Link} to="/DogCare" className="navtext fw-bold" lg={12} md={6} sm={12}>DOGS CARE</Col>
-                        <Col className="navtext fw-bold" lg={12} md={6} sm={12}>DOGS TRAINING</Col>
+                        <Col as={Link} to="/DogsTraining" className="navtext fw-bold" lg={12} md={6} sm={12}>DOGS TRAINING</Col>
                       </Row>
                     </Col>
                     <Col className="d-flex align-items-center" lg={6} md={6} sm={12}>
@@ -50,8 +50,8 @@ const UserNavbar: React.FC = () => {
                     <Col className="d-flex align-items-center" lg={6} md={6} sm={12}>
                       <Row className='g-4'>
                         <Col as={Link} to="/FindCat" className="navtext fw-bold" lg={12} md={6} sm={12}>FIND CATS</Col>
-                        <Col className="navtext fw-bold" lg={12} md={6} sm={12}>CATS CARE</Col>
-                        <Col className="navtext fw-bold" lg={12} md={6} sm={12}>CATS TRAINING</Col>
+                        <Col as={Link} to="/CatCare" className="navtext fw-bold" lg={12} md={6} sm={12}>CATS CARE</Col>
+                        <Col as={Link} to="/CatTraining" className="navtext fw-bold" lg={12} md={6} sm={12}>CATS TRAINING</Col>
                       </Row>
                     </Col>
                     <Col className="d-flex align-items-center" lg={6} md={6} sm={12}>
@@ -73,7 +73,7 @@ const UserNavbar: React.FC = () => {
                     </Col>
                   </Row>
             </NavDropdown>
-            <NavDropdown className='fw-bold fs-6 text-dark' title="FOODS" id="collasible-nav-dropdown">
+            <NavDropdown  className='fw-bold fs-6 text-dark' title="FOODS" id="collasible-nav-dropdown">
                   <Row className='droprow g-2'>
                     <Col className="d-flex align-items-center" lg={6} md={6} sm={12}>
                       <Row className='g-4'>
@@ -89,8 +89,11 @@ const UserNavbar: React.FC = () => {
             </NavDropdown>
           </Nav>
           <Nav>
+      
             {
-              user?.email ? <button onClick={LogOutHandler} className='btn btn-warning fw-bold  fs-6'>Log-Out</button> : <><Nav.Link as={Link} to="/register">Sign-Up</Nav.Link><Nav.Link as={Link} to="/login">Login</Nav.Link></>
+              user?.email ? <button onClick={LogOutHandler} className='btn btn-warning fw-bold  fs-6'>Log-Out <i className="fas fa-sign-out-alt"></i></button> : <><NavDropdown  className='fw-bold fs-6 text-dark' title="ACCOUNT" id="collasible-nav-dropdown">
+        <Nav.Link className='nav_btn mx-2' as={Link} to="/register"> <span className='regularcolor fw-bold fs-6'>REGISTER <i className="far fa-user-circle"></i></span> </Nav.Link><Nav.Link className='nav_btn my-2' as={Link} to="/login"> <span className='regularcolor fw-bold fs-6'>LOG-IN <i className="fas fa-sign-in-alt"></i></span> </Nav.Link>
+            </NavDropdown><i className="far fa-user-circle fa-2x regularcolor"></i></>
             }
           </Nav>
         </Navbar.Collapse>

@@ -39,12 +39,12 @@ const PetAccessories: React.FC = () => {
     }
     return (
         <div className="container-fluid">
-            <h2 className='fw-bold fs-4 text-center my-4'>This is Food And Accessories</h2>
-            <Row className='justify-content-center g-3'>
-                <Col onClick={() => FilterHandler('all')} lg={3} md={6} sm={12}><button className='btn btn-warning fw-bold'>ALL</button></Col>
-                <Col onClick={() => FilterHandler('dog')} lg={3} md={6} sm={12}><button className='btn btn-warning fw-bold'>DOGS</button></Col>
-                <Col onClick={() => FilterHandler('cat')} lg={3} md={6} sm={12}><button className='btn btn-warning fw-bold'>CATS</button></Col>
-                <Col onClick={() => FilterHandler('other')} lg={3} md={6} sm={12}><button className='btn btn-warning fw-bold'>OTHER</button></Col>
+            <h2 className='fw-bold fs-1 regulartext regularcolor text-center my-4'>Food And Accessories</h2>
+            <Row className='justify-content-center g-3 text-center  gap-3'>
+                <Col className='category_colam' onClick={() => FilterHandler('all')} lg={2} md={6} sm={12}><h6 className='p-2 fw-bold'>ALL</h6></Col>
+                <Col className='category_colam' onClick={() => FilterHandler('dog')} lg={2} md={6} sm={12}><h6 className='p-2 fw-bold'>DOGS</h6></Col>
+                <Col className='category_colam' onClick={() => FilterHandler('cat')} lg={2} md={6} sm={12}><h6 className='p-2 fw-bold'>CATS</h6></Col>
+                <Col className='category_colam' onClick={() => FilterHandler('other')} lg={2} md={6} sm={12}> <h6 className='p-2 fw-bold'>OTHER</h6> </Col>
             </Row>
             {
                 filterdata?.length ? 
@@ -58,9 +58,11 @@ const PetAccessories: React.FC = () => {
                     {
                         sliceAccessories?.map(accessories => <Accessories key={accessories._id} accessories={accessories}></Accessories>)
                     }
-                <Row className='d-flex justify-content-center'>
-                    <Col lg={4}>
-                    <button className='btn btn-dark fw-bold'>SEE ALL</button>
+                <Row className='d-flex justify-content-center mt-4'>
+                    <Col lg={2}>
+                     <Row>
+                     <button className='seeall_btn fw-bold fs-5'>SEE ALL <i className="fas fa-angle-double-right"></i></button>
+                     </Row>
                     </Col>
                 </Row>
                 </Row>

@@ -18,6 +18,9 @@
 .regulartext{
     font-family: 'Charm', cursive;
 }
+.regularcolor{
+    color: #00205b;
+}
 .serachbtn{
     background-color: #00205b;
     color: white;
@@ -34,6 +37,9 @@
 }
 .searchrow{
     padding: 50px;
+}
+.intro_row{
+    background-color: #00205b;
 }
 @media only screen and (max-width: 688px){
     .serachbtn{
