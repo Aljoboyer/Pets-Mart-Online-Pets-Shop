@@ -27,8 +27,6 @@ const PetSearchForm: React.FC = () => {
                     <option>PETS TYPE</option>
                     <option value="dog">DOG</option>
                     <option value="cat">CAT</option>
-                    <option value="bird">BIRD</option>
-                    <option value="rabbit">RABBIT</option>
                 </Form.Select>
             </Col>
             <Col  lg={3} md={6} sm={12}>

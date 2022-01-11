@@ -56,7 +56,7 @@ const Checkoutform: React.FC<Props> = ({alltotalamount, totalAccessoriesAmount})
     })
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent',{
+        fetch('https://still-castle-87699.herokuapp.com/create-payment-intent',{
             method: 'POST',
             headers: {
                 'content-type':'application/json'
@@ -143,7 +143,7 @@ const Checkoutform: React.FC<Props> = ({alltotalamount, totalAccessoriesAmount})
              //saving ordered pets database
              dispatch(PostCart(carts))
              //saving payment status database
-             fetch('http://localhost:5000/paymentstatus',{
+             fetch('https://still-castle-87699.herokuapp.com/paymentstatus',{
                 method: 'POST',
                 headers: {
                     'content-type':'application/json'

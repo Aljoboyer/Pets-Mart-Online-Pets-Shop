@@ -25,12 +25,16 @@ const UserNavbar: React.FC = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link className='fw-bold fs-6 text-dark' as={Link} to="/">Home</Nav.Link>
-            <Nav.Link className='fw-bold fs-6 text-dark' as={Link} to="/YourCarts">Your Cart {carts.length}<i className="fas fa-shopping-cart"></i></Nav.Link>
+            {
+              user?.email && <Nav.Link className='fw-bold fs-6 text-dark' as={Link} to="/YourCarts">Your Cart {carts.length}<i className="fas fa-shopping-cart"></i></Nav.Link>
+            }
 
-            <NavDropdown className='fw-bold fs-6 text-dark' title="Your Order" id="collasible-nav-dropdown">
+            {
+              user?.email && <NavDropdown className='fw-bold fs-6 text-dark' title="Your Order" id="collasible-nav-dropdown">
               <NavDropdown.Item className="navtext fw-bold" as={Link} to="/petorder">Pet Order</NavDropdown.Item>
               <NavDropdown.Item className="navtext fw-bold" as={Link} to="/accessoriesOrder">Accessories AND Food Order</NavDropdown.Item>
             </NavDropdown>
+            }
             <NavDropdown className='fw-bold fs-6 text-dark' title="DOG" id="collasible-nav-dropdown">
                   <Row className='droprow g-2'>
                     <Col className="d-flex align-items-center" lg={6} md={6} sm={12}>

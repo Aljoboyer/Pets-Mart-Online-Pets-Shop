@@ -11,7 +11,7 @@ import { SearchData } from '../../Components/UserPages/UserHome/PetSearchForm/Pe
 export const PostPets = createAsyncThunk(
   'Pets/postPets',
   async (fd: BodyInit | null | undefined) => {
-    const response = await fetch('http://localhost:5000/Petspost',{
+    const response = await fetch('https://still-castle-87699.herokuapp.com/Petspost',{
       method: 'POST',
       body: fd 
     }).then(res=> res.json()).catch(error => {
@@ -29,7 +29,7 @@ export const GetAllPets = createAsyncThunk(
   'Pets/getAllPets',
   async () => {
     
-    const response = await fetch('http://localhost:5000/GetAllPets').then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch('https://still-castle-87699.herokuapp.com/GetAllPets').then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -37,7 +37,7 @@ export const GetAllPets = createAsyncThunk(
 export const GetAllAccessories = createAsyncThunk(
   'Pets/getAllAccessories',
   async () => {
-    const response = await fetch('http://localhost:5000/getAllAccessories').then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch('https://still-castle-87699.herokuapp.com/getAllAccessories').then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -47,7 +47,7 @@ export const PostCart = createAsyncThunk(
   'Pets/postCart',
   async (data:  BodyInit | null | undefined | OrderModels[] ) => {
     console.log('cart',data)
-    const response: {} = await fetch('http://localhost:5000/PostCart',{
+    const response: {} = await fetch('https://still-castle-87699.herokuapp.com/PostCart',{
       method: 'POST',
       headers:{
         'content-type':'application/json'
@@ -62,7 +62,7 @@ export const PetOrderPost = createAsyncThunk(
   'Pets/petOrderPost',
   async (data:  BodyInit | null | undefined | PetOrderData ) => {
 
-    const response: {} = await fetch('http://localhost:5000/PetOrderPost',{
+    const response: {} = await fetch('https://still-castle-87699.herokuapp.com/PetOrderPost',{
       method: 'POST',
       headers:{
         'content-type':'application/json'
@@ -76,7 +76,7 @@ export const PetOrderPost = createAsyncThunk(
 export const GetAllData = createAsyncThunk(
   'Pets/getAllData',
   async () => {
-    const response = await fetch('http://localhost:5000/GetAllData').then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch('https://still-castle-87699.herokuapp.com/GetAllData').then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -84,7 +84,7 @@ export const GetAllData = createAsyncThunk(
 export const GetAccessoriesOrder = createAsyncThunk(
   'Pets/getAccessoriesOrder',
   async (email: string | null | undefined) => {
-    const response = await fetch(`http://localhost:5000/GetAccessoriesOrder?email=${email}`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`https://still-castle-87699.herokuapp.com/GetAccessoriesOrder?email=${email}`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -92,7 +92,7 @@ export const GetAccessoriesOrder = createAsyncThunk(
 export const GetPetOrder = createAsyncThunk(
   'Pets/getPetOrder',
   async (email: string | null | undefined) => {
-    const response = await fetch(`http://localhost:5000/GetPetOrder?email=${email}`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`https://still-castle-87699.herokuapp.com/GetPetOrder?email=${email}`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -101,7 +101,7 @@ export const PetOrderDelete = createAsyncThunk(
   'Pets/petOrderDelete',
   async (id: string) => {
 
-    const response = await fetch(`http://localhost:5000/PetOrderDelete/${id}`,{
+    const response = await fetch(`https://still-castle-87699.herokuapp.com/PetOrderDelete/${id}`,{
       method: 'DELETE'
     }).then(res=> res.json()).catch(error => {console.log(error)});
     return response
@@ -112,7 +112,7 @@ export const AccessoriesOrderDelete = createAsyncThunk(
   'Pets/accessoriesOrderDelete',
   async (id: string) => {
 
-    const response = await fetch(`http://localhost:5000/accessoriesOrderDelete/${id}`,{
+    const response = await fetch(`https://still-castle-87699.herokuapp.com/accessoriesOrderDelete/${id}`,{
       method: 'DELETE'
     }).then(res=> res.json()).catch(error => {console.log(error)});
     return response
@@ -122,7 +122,7 @@ export const AccessoriesOrderDelete = createAsyncThunk(
 export const GetPetsType = createAsyncThunk(
   'Pets/petPetsType',
   async (data: PetTypeData  | string) => {
-    const response = await fetch(`http://localhost:5000/GetPetsType?filterdata=${data}`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`https://still-castle-87699.herokuapp.com/GetPetsType?filterdata=${data}`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -130,7 +130,7 @@ export const GetPetsType = createAsyncThunk(
 export const GetAllPetOrder = createAsyncThunk(
   'Pets/getAllPetOrder',
   async () => {
-    const response = await fetch('http://localhost:5000/GetAllPetOrder').then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch('https://still-castle-87699.herokuapp.com/GetAllPetOrder').then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -138,7 +138,7 @@ export const GetAllPetOrder = createAsyncThunk(
 export const AcceptPet = createAsyncThunk(
   'Pets/acceptPet',
   async (id: string) => {
-    const response = await fetch(`http://localhost:5000/AcceptPet/${id}`,{
+    const response = await fetch(`https://still-castle-87699.herokuapp.com/AcceptPet/${id}`,{
       method: 'PUT'
     }).then(res=> res.json()).catch(error => {console.log(error)});
     return response
@@ -149,7 +149,7 @@ export const GetAllAccessoriesOrder = createAsyncThunk(
   'Pets/getAllAccessoriesOrder',
   async () => {
    
-    const response = await fetch('http://localhost:5000/GetAllAccessoriesOrder').then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch('https://still-castle-87699.herokuapp.com/GetAllAccessoriesOrder').then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -157,7 +157,7 @@ export const GetAllAccessoriesOrder = createAsyncThunk(
 export const MakeAnAdmin = createAsyncThunk(
   'Pets/makeAdmin',
   async (email: string) => {
-    const response = await fetch(`http://localhost:5000/MakeAnAdmin?email=${email}`,{
+    const response = await fetch(`https://still-castle-87699.herokuapp.com/MakeAnAdmin?email=${email}`,{
       method: 'PUT'
     }).then(res=> res.json()).catch(error => {console.log(error)});
     return response

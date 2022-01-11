@@ -17,8 +17,6 @@ const CatAccessories = () => {
         dispatch(GetPetsType(obj))
     },[dispatch, obj])
     const allCatAccessories = useAppSelector((state) => state.petstore.petstype)
-
-    console.log("allCatAccessories",allCatAccessories)
     return (
         <div className='container-fluid'>
             <NavRow></NavRow>

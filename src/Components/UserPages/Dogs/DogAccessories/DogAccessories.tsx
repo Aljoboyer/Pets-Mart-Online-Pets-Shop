@@ -18,7 +18,7 @@ const DogsAccessories = () => {
     },[dispatch, obj])
     const alldogaccessories = useAppSelector((state) => state.petstore.petstype)
 
-    console.log("alldogaccessories",alldogaccessories)
+  
     return (
         <div className='container-fluid'>
             <NavRow></NavRow>

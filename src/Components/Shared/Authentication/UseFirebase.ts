@@ -43,7 +43,7 @@ const useFirebase = () =>  {
     
     //Login User
     const LogInUser = (email: string, password: string, navigate:  NavigateFunction, location: Location) => {
-        fetch(`http://localhost:5000/checkUser?email=${email}`)
+        fetch(`https://still-castle-87699.herokuapp.com/checkUser?email=${email}`)
         .then(res => res.json())
         .then(data => {
             if(data.role === 'admin'){
@@ -106,7 +106,7 @@ const useFirebase = () =>  {
     //saving user info to database
     const SaveUser = (email: string, name: string) => {
         const newuser = {email, name}
-        fetch('http://localhost:5000/saveuser',{
+        fetch('https://still-castle-87699.herokuapp.com/saveuser',{
             method: 'POST',
             headers: {
                 'content-type':'application/json'
