@@ -13,7 +13,7 @@ const AdminDashboard = () => {
                 <Col className="sidebar" lg={2} md={4} sm={12}>
                     <AdminDashboardSidebar></AdminDashboardSidebar>
                 </Col>
-                <Col className='dataside' lg={10} md={8} sm={12}>
+                <Col className='dataside my-4' lg={10} md={8} sm={12}>
                     <Outlet/>
                 </Col>
             </Row>

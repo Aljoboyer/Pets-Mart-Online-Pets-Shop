@@ -3,7 +3,7 @@ import { CartData } from '../Payments/Checkoutform';
 
 interface Props {
     order: CartData,
-    OrdeDeleteHandler: Function
+    OrdeDeleteHandler: Function 
 }
 const YourAccessoriesOrder: React.FC<Props> = ({order, OrdeDeleteHandler}) => {
     const {_id, accessoriesAmount,location, short, phone, email, totalamount, username} = order

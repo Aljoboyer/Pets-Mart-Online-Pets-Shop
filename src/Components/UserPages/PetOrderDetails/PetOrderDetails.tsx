@@ -34,6 +34,7 @@ export interface PetOrderData {
     color: string,
     clan: string
     img: string,
+    status?: string
 }
 const PetOrderDetails: React.FC = () => {
     const { register,reset, handleSubmit, formState: { errors } } = useForm<Inputs>();
@@ -72,7 +73,7 @@ const PetOrderDetails: React.FC = () => {
     const allTotal: number = total === 0 ? 0 : total + devliverycharge;
 
     const AddCartHandler =  () => {
-        const carts = {...pet, accessoriesAmount, totalamount: allTotal, email: user?.email, orderDate: new Date().toLocaleDateString()}
+        const carts = {...pet, accessoriesAmount, totalamount: allTotal, email: user?.email, orderDate: new Date().toLocaleDateString(), status: 'pending'}
         dispatch(addCart(carts))
     }
     return (

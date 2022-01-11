@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {signOut ,signInWithPopup, GoogleAuthProvider ,onAuthStateChanged, signInWithEmailAndPassword, getAuth, createUserWithEmailAndPassword, updateProfile, User, Auth } from "firebase/auth";
 import InitializationApp from "../../../FirebaseSetup/FirebaseInit";
 import { NavigateFunction, Location } from "react-router-dom";
+import Swal from "sweetalert2";
 
 interface UserData {
     email?: string,
@@ -19,7 +20,7 @@ const useFirebase = () =>  {
     const googleProvider = new GoogleAuthProvider();
 
     //Register User
-    const RegisterUser = (email: string, password: string, name: string) => {
+    const RegisterUser = (email: string, password: string, name: string, navigate: NavigateFunction) => {
         setIsloading(true)
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -27,17 +28,12 @@ const useFirebase = () =>  {
             setUser(user)
             //saving user to database
             SaveUser(email, name)
-            //user profile update
-            // updateProfile(auth.currentUser: User, {
-            //     displayName: "Jane Q. User"
-            //   }).then(() => {
-            //     // Profile updated!
-            //     // ...
-            //   }).catch((error) => {
-            //     // An error occurred
-            //     // ...
-            //   });
-            alert('Register Successfull')
+            navigate('/')
+            Swal.fire(
+                'Succesfull !',
+                'Successfully Registered',
+                'success'
+              )
         })
         .catch((error) => {
             console.log('from register user', error.message);
@@ -47,19 +43,40 @@ const useFirebase = () =>  {
     
     //Login User
     const LogInUser = (email: string, password: string, navigate:  NavigateFunction, location: Location) => {
-        setIsloading(true)
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            setUser(user)
-            const destination = location?.state?.from || '/';
-          navigate(destination)
-    
+        fetch(`http://localhost:5000/checkUser?email=${email}`)
+        .then(res => res.json())
+        .then(data => {
+            if(data.role === 'admin'){
+                setIsloading(true)
+                signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    setUser(user)
+
+                navigate('/adminDashboard')
+            
+                })
+                .catch((error) => {
+                    setLogError(error.message)
+                }).finally(() => setIsloading(false));
+            }
+            else{
+                setIsloading(true)
+                    signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        // Signed in 
+                        const user = userCredential.user;
+                        setUser(user)
+                        const destination = location?.state?.from || '/';
+                    navigate(destination)
+                
+                    })
+                    .catch((error) => {
+                        setLogError(error.message)
+                    }).finally(() => setIsloading(false));
+            }
         })
-        .catch((error) => {
-            setLogError(error.message)
-        }).finally(() => setIsloading(false));
     }
     //google sign in
     const GoogleSignIn = () => {

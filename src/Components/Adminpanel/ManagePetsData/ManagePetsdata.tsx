@@ -15,7 +15,7 @@ const ManagePetsdata = () => {
     const alldatas = useAppSelector((state) => state.petstore.alldata);
     console.log('data',alldatas)
     return (
-        <Row className='container-fluid'>
+        <Row className='container-fluid g-3'>
             {
                 alldatas?.map(data => <ManagePet key={data._id} data={data}></ManagePet>)
             }

@@ -83,16 +83,16 @@ export const GetAllData = createAsyncThunk(
 //Geting accessories order from database
 export const GetAccessoriesOrder = createAsyncThunk(
   'Pets/getAccessoriesOrder',
-  async () => {
-    const response = await fetch('http://localhost:5000/GetAccessoriesOrder').then(res=> res.json()).catch(error => {console.log(error)});
+  async (email: string | null | undefined) => {
+    const response = await fetch(`http://localhost:5000/GetAccessoriesOrder?email=${email}`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
-//Geting all pet order from database
+//user geting their pet order
 export const GetPetOrder = createAsyncThunk(
   'Pets/getPetOrder',
-  async () => {
-    const response = await fetch('http://localhost:5000/GetPetOrder').then(res=> res.json()).catch(error => {console.log(error)});
+  async (email: string | null | undefined) => {
+    const response = await fetch(`http://localhost:5000/GetPetOrder?email=${email}`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -123,6 +123,43 @@ export const GetPetsType = createAsyncThunk(
   'Pets/petPetsType',
   async (data: PetTypeData  | string) => {
     const response = await fetch(`http://localhost:5000/GetPetsType?filterdata=${data}`).then(res=> res.json()).catch(error => {console.log(error)});
+    return response
+  }
+)
+//Admin all pets order
+export const GetAllPetOrder = createAsyncThunk(
+  'Pets/getAllPetOrder',
+  async () => {
+    const response = await fetch('http://localhost:5000/GetAllPetOrder').then(res=> res.json()).catch(error => {console.log(error)});
+    return response
+  }
+)
+//Admin accepting pet order
+export const AcceptPet = createAsyncThunk(
+  'Pets/acceptPet',
+  async (id: string) => {
+    const response = await fetch(`http://localhost:5000/AcceptPet/${id}`,{
+      method: 'PUT'
+    }).then(res=> res.json()).catch(error => {console.log(error)});
+    return response
+  }
+)
+//Admin geting all accessories order pet order
+export const GetAllAccessoriesOrder = createAsyncThunk(
+  'Pets/getAllAccessoriesOrder',
+  async () => {
+   
+    const response = await fetch('http://localhost:5000/GetAllAccessoriesOrder').then(res=> res.json()).catch(error => {console.log(error)});
+    return response
+  }
+)
+//Admin making another amdin
+export const MakeAnAdmin = createAsyncThunk(
+  'Pets/makeAdmin',
+  async (email: string) => {
+    const response = await fetch(`http://localhost:5000/MakeAnAdmin?email=${email}`,{
+      method: 'PUT'
+    }).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -237,6 +274,26 @@ export const PetReducer = createSlice({
     })
     builder.addCase(GetPetsType.fulfilled, (state, action: PayloadAction<PetObjData[]>) => {
         state.petstype = action.payload
+    })
+    builder.addCase(GetAllPetOrder.fulfilled, (state, action: PayloadAction<PetOrderData[]>) => {
+      state.petorder = action.payload
+    })
+    builder.addCase(AcceptPet.fulfilled, (state, action) => {
+      Swal.fire(
+        'Order Accepted Succesfully',
+        '',
+        'success'
+      )
+    })
+    builder.addCase(GetAllAccessoriesOrder.fulfilled, (state, action: PayloadAction<CartData[]>) => {
+      state.accessoriesOrder = action.payload
+    })
+    builder.addCase(MakeAnAdmin.fulfilled, (state, action) => {
+      Swal.fire(
+        'Admin Maked Succesfully',
+        '',
+        'success'
+      )
     })
   },
 });

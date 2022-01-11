@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { useAppSelector } from '../../../app/apphook';
 import {AccessoriesOrderDelete, GetAccessoriesOrder} from '../../../features/PetSlice/PetsSlice';
+import useFirebase from '../../Shared/Authentication/UseFirebase';
 import { CartData } from '../Payments/Checkoutform';
 import UserNavbar from '../UserNavbar/UserNavbar';
 import YourAccessoriesOrder from './YourAccessoriesOrder';
@@ -11,10 +12,11 @@ import YourAccessoriesOrder from './YourAccessoriesOrder';
 const YourAccessoriesOrders = () => {
     const dispatch = useDispatch();
     const [demo,setDemo] = useState<CartData[]>([])
+    const {user} = useFirebase();
 
     useEffect(() => {
-        dispatch(GetAccessoriesOrder())
-    },[dispatch, demo]);
+        dispatch(GetAccessoriesOrder(user?.email))
+    },[dispatch, demo, user?.email]);
 
     const orders = useAppSelector((state) => state.petstore.accessoriesOrder);
     const OrdeDeleteHandler = (id: string) => {

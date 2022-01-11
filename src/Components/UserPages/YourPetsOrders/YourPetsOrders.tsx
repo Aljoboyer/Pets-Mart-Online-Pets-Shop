@@ -7,13 +7,15 @@ import UserNavbar from '../UserNavbar/UserNavbar';
 import YourPetOrder from './YourPetOrder';
 import Swal from 'sweetalert2';
 import { PetOrderData } from '../PetOrderDetails/PetOrderDetails';
+import useFirebase from '../../Shared/Authentication/UseFirebase';
 
 const YourPetsOrders = () => {
     const dispatch = useDispatch();
     const [demo,setDemo] = useState<PetOrderData[]>([])
+    const {user} = useFirebase()
     useEffect(() => {
-        dispatch(GetPetOrder())
-    },[dispatch, demo]);
+        dispatch(GetPetOrder(user?.email))
+    },[dispatch, demo, user?.email]);
 
     const orders = useAppSelector((state) => state.petstore.petorder);
     
@@ -37,7 +39,7 @@ const YourPetsOrders = () => {
     return (
         <Row className="container-fluid">
         <UserNavbar></UserNavbar>
-        <h1 className='my-4 fw-bold text-center'>Your All Pet Order</h1>
+        <h1 className='my-4 fw-bold regulartext regularcolor text-center'>Your All Pet Order</h1>
         <Table striped bordered hover responsive size="sm">
             <thead>
                 <tr>
@@ -50,6 +52,7 @@ const YourPetsOrders = () => {
                 <th>Price</th>
                 <th>Color</th>
                 <th>Order Date</th>
+                <th>Status</th>
                 </tr>
             </thead>
             <tbody>

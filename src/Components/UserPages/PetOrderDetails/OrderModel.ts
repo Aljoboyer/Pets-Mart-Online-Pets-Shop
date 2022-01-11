@@ -12,5 +12,6 @@ export interface OrderModels {
     clan?: string
     img?: string,
     accessoriesAmount: number,
-    totalamount: number
+    totalamount: number,
+  
 }

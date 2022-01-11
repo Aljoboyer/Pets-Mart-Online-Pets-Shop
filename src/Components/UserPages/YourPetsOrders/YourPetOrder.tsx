@@ -6,7 +6,7 @@ interface Props {
     OrdeDeleteHandler: Function
 }
 const YourPetOrder: React.FC<Props> = ({order,OrdeDeleteHandler}) => {
-    const {_id,username,orderDate, email, phone, location, age, color, petprice, clan} = order
+    const {_id,status,username,orderDate, email, phone, location, age, color, petprice, clan} = order
     return (
         <tr>
         <td>{username}</td>
@@ -18,6 +18,7 @@ const YourPetOrder: React.FC<Props> = ({order,OrdeDeleteHandler}) => {
         <td>{petprice}</td>
         <td>{color}</td>
         <td>{orderDate}</td>
+        <td>{status}</td>
         <td><button onClick={() => OrdeDeleteHandler(_id)} className='btn btn-warning fw-bold text-dark'>CANCEL</button></td>
         </tr>
     );

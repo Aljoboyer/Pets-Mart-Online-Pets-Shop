@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row , Button} from 'react-bootstrap';
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import NavRow from '../../UserPages/UserNavbar/NavRow';
 import UserNavbar from '../../UserPages/UserNavbar/UserNavbar';
 import useFirebase from '../Authentication/UseFirebase';
@@ -16,9 +16,9 @@ interface Inputs  {
 const Register = () => {
     const { register,reset, handleSubmit, formState: { errors } } = useForm<Inputs>();
     const {RegisterUser} = useFirebase()
-
+    const navigate = useNavigate()
     const onSubmit: SubmitHandler<Inputs> = data => {
-        RegisterUser(data.email, data.password, data.name)
+        RegisterUser(data.email, data.password, data.name, navigate)
         reset()
     }
     return (

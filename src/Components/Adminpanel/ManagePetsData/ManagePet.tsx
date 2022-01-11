@@ -8,9 +8,10 @@ interface Props {
 const ManagePet: React.FC<Props> = ({data}) => {
     const {_id,img, short, petname, petprice, clan} = data
     return (
-        <Col className='d-flex justify-content-center' lg={4} sm={12} md={6}>
+
+    <Col className='d-flex justify-content-center' lg={5} sm={12} md={6}>
         <Card>
-        <Card.Img variant="top" className='petimg' src={`data:image/jpeg;base64,${img}`} />
+        <Card.Img variant="top" className='adminpetimg' src={`data:image/jpeg;base64,${img}`} />
         <Card.Body>
         <Card.Title>{petname}</Card.Title>
         <Card.Text>
@@ -23,7 +24,7 @@ const ManagePet: React.FC<Props> = ({data}) => {
         <Button className="btn btn-warning text-dark fw-bold">DELETE DATA</Button>
         </Card.Footer>
         </Card>
-       </Col>
+        </Col>
     );
 };
 

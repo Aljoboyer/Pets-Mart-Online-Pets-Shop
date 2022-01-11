@@ -26,7 +26,7 @@ const UserNavbar: React.FC = () => {
           <Nav className="me-auto">
             <Nav.Link className='fw-bold fs-6 text-dark' as={Link} to="/">Home</Nav.Link>
             <Nav.Link className='fw-bold fs-6 text-dark' as={Link} to="/YourCarts">Your Cart {carts.length}<i className="fas fa-shopping-cart"></i></Nav.Link>
-            <Nav.Link className='fw-bold fs-6 text-dark' as={Link} to="/adminDashboard">Admin Dashboard</Nav.Link>
+
             <NavDropdown className='fw-bold fs-6 text-dark' title="Your Order" id="collasible-nav-dropdown">
               <NavDropdown.Item className="navtext fw-bold" as={Link} to="/petorder">Pet Order</NavDropdown.Item>
               <NavDropdown.Item className="navtext fw-bold" as={Link} to="/accessoriesOrder">Accessories AND Food Order</NavDropdown.Item>

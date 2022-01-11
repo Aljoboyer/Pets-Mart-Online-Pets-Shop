@@ -1,11 +1,24 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useFirebase from '../../Shared/Authentication/UseFirebase';
 
 const AdminDashboardSidebar = () => {
+    const navigate =  useNavigate()
+    const {user, LogOutUser} = useFirebase();
+  
+    const LogOutHandler = () => {
+      LogOutUser(navigate)
+    }
     return (
         <>
     <ListGroup className="sidenav">
+        {
+            user?.email && <ListGroup.Item className='regularcolor fw-bold mb-2' onClick={LogOutHandler} action variant="secondary">
+            LOGOUT
+       </ListGroup.Item>
+        }
+ 
         <ListGroup.Item className='regularcolor fw-bold' as={Link} to="/adminDashboard" action variant="secondary">
              Home
         </ListGroup.Item>

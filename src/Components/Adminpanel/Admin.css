@@ -39,3 +39,9 @@
     border: solid rgb(13, 36, 88) 5px;
     background-color: gold;
 }
+.adminpetimg{
+    width: 250px;
+    height: 350px;
+}
+@media only screen and (max-width: 688px){
+}
