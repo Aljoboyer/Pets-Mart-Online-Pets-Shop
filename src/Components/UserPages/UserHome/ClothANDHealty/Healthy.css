@@ -1,0 +1,19 @@
+.regularwhitebtn{
+    background-color: white;
+    color: #00205b;
+}
+.healthytextcolam{
+    color: #00205b;
+}
+.healthyimgcolam{
+    background-color: #6edcfa;
+}
+.clothestxt{
+    color: #00205b;
+}
+.seasonalcolam{
+    background-image: url('../../../../Images/seasonalbg.png');
+    background-repeat: no-repeat;
+
+    background-position: center;
+}

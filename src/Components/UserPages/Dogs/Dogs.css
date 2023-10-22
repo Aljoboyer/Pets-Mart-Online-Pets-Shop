@@ -1,0 +1,51 @@
+.dogcaretitle{
+    font-size: 60px;
+    color: white;
+    font-family: 'Charm', cursive;
+    font-weight: bolder;
+}
+.dogcarRow{
+    background-color: #64cecd;
+}
+.dogcaretext{
+    font-size: 20px;
+}
+.hipjoin{
+    background-color: #0088ca;
+}
+.omega{
+    background-color: #ee4443;
+}
+.dental{
+    background-color: #9b64a8;
+}
+.cannine{
+    background-color: #96ba3e;
+}
+.learnmore{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.training-title{
+ cursor: pointer;
+}
+.training-title:hover{
+    color: #ee4443;
+}
+.train-icon{
+    color: #0088ca;
+}
+.spantext{
+    font-size: 14px;
+}
+@media only screen and (max-width: 688px){
+    .dogcaretitle{
+        font-size: 30px;
+        color: white;
+        font-family: 'Charm', cursive;
+        font-weight: bolder;
+    }
+    .dogcaretext{
+        font-size: 12px;
+    }
+}

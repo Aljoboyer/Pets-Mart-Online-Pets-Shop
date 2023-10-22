@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm&display=swap');
+
+.homecolam{
+    color: white;
+    background-color: #00205b;
+}
+.homebanner-btn{
+    background-color: white;
+    border: none;
+    padding: 15px 70px 15px 70px;
+    color: #00205b;
+}
+.hometitle{
+    font-size: 50px;
+   font-weight: bold;
+    font-family: 'Charm', cursive;
+}
+.regulartext{
+    font-family: 'Charm', cursive;
+}
+.regularcolor{
+    color: #00205b;
+}
+.serachbtn{
+    background-color: #00205b;
+    color: white;
+    font-family: 'Charm', cursive;
+    padding: 12px 70px 12px 70px;
+}
+.searchrow, .searchcolam{
+    background-color: yellow;
+    color: #00205b;
+    font-weight: bold;
+}
+.searchcolam{
+    outline: none;
+}
+.searchrow{
+    padding: 50px;
+}
+.intro_row{
+    background-color: #00205b;
+}
+@media only screen and (max-width: 688px){
+    .serachbtn{
+        background-color: #00205b;
+        color: white;
+        font-family: 'Charm', cursive;
+        padding: 10px
+    }
+  
+    .homebanner-btn{
+        background-color: white;
+        border: none;
+        padding: 15px;
+        color: #00205b;
+    }
+    .homecolam{
+        width: 800px;
+    }
+}
