@@ -3,6 +3,7 @@ import {signOut ,signInWithPopup, GoogleAuthProvider ,onAuthStateChanged, signIn
 import InitializationApp from "../../../FirebaseSetup/FirebaseInit";
 import { NavigateFunction, Location } from "react-router-dom";
 import Swal from "sweetalert2";
+import { BASE_URL } from "../../../features/PetSlice/PetsSlice";
 
 interface UserData {
     email?: string,
@@ -27,7 +28,7 @@ const useFirebase = () =>  {
             const user = userCredential.user;
             setUser(user)
             //saving user to database
-            SaveUser(email, name)
+            SaveUser(email, name, 'regular')
             navigate('/')
             Swal.fire(
                 'Succesfull !',
@@ -36,14 +37,19 @@ const useFirebase = () =>  {
               )
         })
         .catch((error) => {
-            console.log('from register user', error.message);
+            console.log('from register user', );
+            Swal.fire(
+                'Error !',
+                'This email already used',
+                'error'
+              )
             setRegError(error.message)
         }).finally(() => setIsloading(false));
     }
     
     //Login User
     const LogInUser = (email: string, password: string, navigate:  NavigateFunction, location: any) => {
-        fetch(`https://pets-mart-server-9yrp.vercel.app/checkUser?email=${email}`)
+        fetch(`${BASE_URL}/user/checkUser?email=${email}`)
         .then(res => res.json())
         .then(data => {
             if(data.role === 'admin'){
@@ -104,9 +110,9 @@ const useFirebase = () =>  {
           });
     },[auth])
     //saving user info to database
-    const SaveUser = (email: string, name: string) => {
-        const newuser = {email, name}
-        fetch('https://pets-mart-server-9yrp.vercel.app/saveuser',{
+    const SaveUser = (email: string, name: string, role: string) => {
+        const newuser = {email, name, role}
+        fetch(`${BASE_URL}/user/saveuser`,{
             method: 'POST',
             headers: {
                 'content-type':'application/json'

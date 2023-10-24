@@ -18,7 +18,7 @@ const CatAccessories = () => {
     },[dispatch, obj])
     const allCatAccessories = useAppSelector((state) => state.petstore.petstype)
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid py-4'>
             <NavRow></NavRow>
             <UserNavbar></UserNavbar>
             <Row className="justify-content-center">

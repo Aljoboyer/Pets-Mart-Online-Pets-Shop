@@ -22,7 +22,7 @@ const DogsFood = () => {
         <div className='container-fluid'>
             <NavRow></NavRow>
             <UserNavbar></UserNavbar>
-            <Row className="justify-content-center">
+            <Row className="justify-content-center py-4">
                 {
                     alldogfood?.map(accessories => <Accessories key={accessories._id} accessories={accessories}></Accessories>)
                 }

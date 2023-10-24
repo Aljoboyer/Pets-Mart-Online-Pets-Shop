@@ -5,7 +5,7 @@ import { Row, Col, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { useAppSelector } from '../../../app/apphook';
-import { ClearCart, PostCart } from '../../../features/PetSlice/PetsSlice';
+import { BASE_URL, ClearCart, PostCart } from '../../../features/PetSlice/PetsSlice';
 import useFirebase from '../../Shared/Authentication/UseFirebase';
 
 interface CheckoutData {
@@ -56,7 +56,7 @@ const Checkoutform: React.FC<Props> = ({alltotalamount, totalAccessoriesAmount})
     })
 
     useEffect(() => {
-        fetch('https://pets-mart-server-9yrp.vercel.app/create-payment-intent',{
+        fetch(`${BASE_URL}/create-payment-intent`,{
             method: 'POST',
             headers: {
                 'content-type':'application/json'

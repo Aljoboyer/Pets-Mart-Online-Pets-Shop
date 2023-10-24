@@ -11,7 +11,7 @@ const Pets: React.FC<props> = ({pet}) => {
 
     const {_id,img, short, petname, petprice, clan} = pet
     return (
-       <Col className='d-flex justify-content-center' lg={4} sm={12} md={6}>
+       <Col className='d-flex justify-content-center g-4' lg={4} sm={12} md={6}>
         <Card>
         <Card.Img variant="top" className='petimg' src={`data:image/jpeg;base64,${img}`} />
         <Card.Body>

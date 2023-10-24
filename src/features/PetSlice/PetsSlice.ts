@@ -7,8 +7,8 @@ import {OrderModels} from '../../Components/UserPages/PetOrderDetails/OrderModel
 import { PetOrderData } from '../../Components/UserPages/PetOrderDetails/PetOrderDetails';
 import { SearchData } from '../../Components/UserPages/UserHome/PetSearchForm/PetSearchForm';
 
-// const BASE_URL = 'https://pets-mart-server-9yrp.vercel.app'
-const BASE_URL = 'http://localhost:5000'
+//export  const BASE_URL = 'https://pets-mart-server-9yrp.vercel.app'
+export const BASE_URL = 'http://localhost:5000'
 
 //posting Pets data to database
 export const PostPets = createAsyncThunk(
@@ -32,7 +32,7 @@ export const GetAllPets = createAsyncThunk(
   'Pets/getAllPets',
   async () => {
     
-    const response = await fetch(`${BASE_URL}/GetAllPets`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`${BASE_URL}/pets/GetAllPets`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -40,7 +40,7 @@ export const GetAllPets = createAsyncThunk(
 export const GetAllAccessories = createAsyncThunk(
   'Pets/getAllAccessories',
   async () => {
-    const response = await fetch(`${BASE_URL}/getAllAccessories`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`${BASE_URL}/pets/getAllAccessories`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 ) 
@@ -65,7 +65,7 @@ export const PetOrderPost = createAsyncThunk(
   'Pets/petOrderPost',
   async (data:  BodyInit | null | undefined | PetOrderData ) => {
 
-    const response: {} = await fetch(`${BASE_URL}/PetOrderPost`,{
+    const response: {} = await fetch(`${BASE_URL}/pets/PetOrderPost`,{
       method: 'POST',
       headers:{
         'content-type':'application/json'
@@ -95,7 +95,7 @@ export const GetAccessoriesOrder = createAsyncThunk(
 export const GetPetOrder = createAsyncThunk(
   'Pets/getPetOrder',
   async (email: string | null | undefined) => {
-    const response = await fetch(`${BASE_URL}/GetPetOrder?email=${email}`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`${BASE_URL}/pets/GetPetOrder?email=${email}`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -125,7 +125,7 @@ export const AccessoriesOrderDelete = createAsyncThunk(
 export const GetPetsType = createAsyncThunk(
   'Pets/petPetsType',
   async (data: PetTypeData  | string) => {
-    const response = await fetch(`${BASE_URL}/GetPetsType?filterdata=${data}`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`${BASE_URL}/pets/GetPetsType?filterdata=${data}`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )

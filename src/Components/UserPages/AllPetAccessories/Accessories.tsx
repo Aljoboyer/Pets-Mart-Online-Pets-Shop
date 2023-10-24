@@ -8,7 +8,7 @@ interface Props {
 const Accessories: React.FC<Props> = ({accessories}) => {
     const {_id,img, short, petprice} = accessories
     return (
-        <Col className='d-flex justify-content-center' lg={4} sm={12} md={6}>
+        <Col className='d-flex justify-content-center g-4' lg={4} sm={12} md={6}>
         <Card>
         <Card.Img variant="top" className='petimg' src={`data:image/jpeg;base64,${img}`} />
         <Card.Body>
