@@ -14,7 +14,7 @@ export const BASE_URL = 'http://localhost:5000'
 export const PostPets = createAsyncThunk(
   'Pets/postPets',
   async (fd: BodyInit | null | undefined) => {
-    const response = await fetch(`${BASE_URL}/Petspost`,{
+    const response = await fetch(`${BASE_URL}/admin/Petspost`,{
       method: 'POST',
       body: fd 
     }).then(res=> res.json()).catch(error => {
@@ -79,7 +79,7 @@ export const PetOrderPost = createAsyncThunk(
 export const GetAllData = createAsyncThunk(
   'Pets/getAllData',
   async () => {
-    const response = await fetch(`${BASE_URL}/GetAllData`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`${BASE_URL}/admin/GetAllData`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -115,7 +115,7 @@ export const AccessoriesOrderDelete = createAsyncThunk(
   'Pets/accessoriesOrderDelete',
   async (id: string) => {
 
-    const response = await fetch(`${BASE_URL}/accessoriesOrderDelete/${id}`,{
+    const response = await fetch(`${BASE_URL}/accessories/accessoriesOrderDelete/${id}`,{
       method: 'DELETE'
     }).then(res=> res.json()).catch(error => {console.log(error)});
     return response
@@ -133,7 +133,7 @@ export const GetPetsType = createAsyncThunk(
 export const GetAllPetOrder = createAsyncThunk(
   'Pets/getAllPetOrder',
   async () => {
-    const response = await fetch(`${BASE_URL}/GetAllPetOrder`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`${BASE_URL}/admin/GetAllPetOrder`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -141,7 +141,7 @@ export const GetAllPetOrder = createAsyncThunk(
 export const AcceptPet = createAsyncThunk(
   'Pets/acceptPet',
   async (id: string) => {
-    const response = await fetch(`${BASE_URL}/AcceptPet/${id}`,{
+    const response = await fetch(`${BASE_URL}/admin/AcceptPet/${id}`,{
       method: 'PUT'
     }).then(res=> res.json()).catch(error => {console.log(error)});
     return response
@@ -152,7 +152,7 @@ export const GetAllAccessoriesOrder = createAsyncThunk(
   'Pets/getAllAccessoriesOrder',
   async () => {
    
-    const response = await fetch(`${BASE_URL}/GetAllAccessoriesOrder`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`${BASE_URL}/admin/GetAllAccessoriesOrder`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   } 
 )
@@ -160,7 +160,7 @@ export const GetAllAccessoriesOrder = createAsyncThunk(
 export const MakeAnAdmin = createAsyncThunk(
   'Pets/makeAdmin',
   async (email: string) => {
-    const response = await fetch(`${BASE_URL}/MakeAnAdmin?email=${email}`,{
+    const response = await fetch(`${BASE_URL}/admin/MakeAnAdmin?email=${email}`,{
       method: 'PUT'
     }).then(res=> res.json()).catch(error => {console.log(error)});
     return response
