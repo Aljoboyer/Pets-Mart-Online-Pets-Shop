@@ -51,7 +51,9 @@ const PetOrderDetails: React.FC = () => {
 
     //for order pet 
     const onSubmit: SubmitHandler<Inputs> = data => {
-        const newdata: PetOrderData = {...pet,...data, email: user?.email, orderDate: new Date().toLocaleDateString()};
+        const {_id, ...resPetdata}: any = pet
+
+        const newdata: PetOrderData = {...resPetdata ,...data, email: user?.email, orderDate: new Date().toLocaleDateString()};
         dispatch(PetOrderPost(newdata))
 
         reset()

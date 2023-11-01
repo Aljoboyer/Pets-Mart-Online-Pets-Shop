@@ -7,7 +7,7 @@ import {OrderModels} from '../../Components/UserPages/PetOrderDetails/OrderModel
 import { PetOrderData } from '../../Components/UserPages/PetOrderDetails/PetOrderDetails';
 import { SearchData } from '../../Components/UserPages/UserHome/PetSearchForm/PetSearchForm';
 
-//export  const BASE_URL = 'https://pets-mart-server-9yrp.vercel.app'
+// export  const BASE_URL = 'https://pets-mart-server.vercel.app'
 export const BASE_URL = 'http://localhost:5000'
 
 //posting Pets data to database
@@ -50,7 +50,7 @@ export const PostCart = createAsyncThunk(
   'Pets/postCart',
   async (data:  BodyInit | null | undefined | OrderModels[] ) => {
     console.log('cart',data)
-    const response: {} = await fetch(`${BASE_URL}/PostCart`,{
+    const response: {} = await fetch(`${BASE_URL}/accessories/PostCart`,{
       method: 'POST',
       headers:{
         'content-type':'application/json'
@@ -87,7 +87,7 @@ export const GetAllData = createAsyncThunk(
 export const GetAccessoriesOrder = createAsyncThunk(
   'Pets/getAccessoriesOrder',
   async (email: string | null | undefined) => {
-    const response = await fetch(`${BASE_URL}/GetAccessoriesOrder?email=${email}`).then(res=> res.json()).catch(error => {console.log(error)});
+    const response = await fetch(`${BASE_URL}/accessories/GetAccessoriesOrder?email=${email}`).then(res=> res.json()).catch(error => {console.log(error)});
     return response
   }
 )
@@ -104,7 +104,7 @@ export const PetOrderDelete = createAsyncThunk(
   'Pets/petOrderDelete',
   async (id: string) => {
 
-    const response = await fetch(`${BASE_URL}/PetOrderDelete/${id}`,{
+    const response = await fetch(`${BASE_URL}/pets/PetOrderDelete/${id}`,{
       method: 'DELETE'
     }).then(res=> res.json()).catch(error => {console.log(error)});
     return response

@@ -56,7 +56,7 @@ const Checkoutform: React.FC<Props> = ({alltotalamount, totalAccessoriesAmount})
     })
 
     useEffect(() => {
-        fetch(`${BASE_URL}/create-payment-intent`,{
+        fetch(`${BASE_URL}/payment/create-payment-intent`,{
             method: 'POST',
             headers: {
                 'content-type':'application/json'
@@ -143,7 +143,7 @@ const Checkoutform: React.FC<Props> = ({alltotalamount, totalAccessoriesAmount})
              //saving ordered pets database
              dispatch(PostCart(carts))
              //saving payment status database
-             fetch('https://pets-mart-server-9yrp.vercel.app/paymentstatus',{
+             fetch(`${BASE_URL}/payment/paymentstatus`,{
                 method: 'POST',
                 headers: {
                     'content-type':'application/json'

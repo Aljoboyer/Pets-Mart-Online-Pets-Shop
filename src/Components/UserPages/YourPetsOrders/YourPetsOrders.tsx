@@ -11,11 +11,11 @@ import useFirebase from '../../Shared/Authentication/UseFirebase';
 
 const YourPetsOrders = () => {
     const dispatch = useDispatch();
-    const [demo,setDemo] = useState<PetOrderData[]>([])
-    const {user} = useFirebase()
+    const {user} = useFirebase();
+    
     useEffect(() => {
         dispatch(GetPetOrder(user?.email))
-    },[dispatch, demo, user?.email]);
+    },[dispatch, user?.email]);
 
     const orders = useAppSelector((state) => state.petstore.petorder);
     
@@ -32,7 +32,7 @@ const YourPetsOrders = () => {
           }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(PetOrderDelete(id))
-                setDemo(orders)
+                setTimeout(() => dispatch(GetPetOrder(user?.email)), 1500)
             }
           })
     }
