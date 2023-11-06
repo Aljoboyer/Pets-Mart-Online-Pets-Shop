@@ -45,3 +45,16 @@
 }
 @media only screen and (max-width: 688px){
 }
+.dataside{
+    margin-left: 200px;
+    padding-bottom: 100px;
+}
+.admin_sidebars{
+    position: fixed;
+    z-index: 1;
+}
+.admin_navbar_div{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}

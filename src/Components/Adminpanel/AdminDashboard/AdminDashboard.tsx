@@ -8,12 +8,12 @@ import {
 const AdminDashboard = () => {
     return (
         <div className='container-fluid'>
-            <DashboardNav></DashboardNav>
+           <div className='admin_navbar_div'> <DashboardNav></DashboardNav></div>
             <Row className='my-4'>
-                <Col className="sidebar" lg={2} md={4} sm={12}>
+                <Col className="sidebar admin_sidebars" lg={2} md={4} sm={12}>
                     <AdminDashboardSidebar></AdminDashboardSidebar>
                 </Col>
-                <Col className='dataside my-4' lg={10} md={8} sm={12}>
+                <Col className='dataside my-4 ' lg={10} md={8} sm={12}>
                     <Outlet/>
                 </Col>
             </Row>
