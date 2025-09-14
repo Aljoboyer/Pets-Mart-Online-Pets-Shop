@@ -28,7 +28,10 @@ const FindCat = () => {
                     {
                         allcats?.map((pet):  any => <Pets key={pet._id} pet={pet}></Pets>)
                     }
-                </> : <h1>Loading........</h1>
+                </> : <div className='loading_div'>
+
+                    <h1 className='loading_text'>Loading......</h1>
+                </div>
                }
             </Row>
         </div>

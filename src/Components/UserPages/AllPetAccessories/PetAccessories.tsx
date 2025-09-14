@@ -47,6 +47,8 @@ const PetAccessories: React.FC = () => {
                 <Col className='category_colam' onClick={() => FilterHandler('other')} lg={2} md={6} sm={12}> <h6 className='p-2 fw-bold'>OTHER</h6> </Col>
             </Row>
             {
+                accessorieses?.length > 0 ? <>
+                {
                 filterdata?.length ? 
                 <Row className='justify-content-center my-4'>
                     {
@@ -66,6 +68,11 @@ const PetAccessories: React.FC = () => {
                     </Col>
                 </Row>
                 </Row>
+            }
+                </> : <div className='loading_div'>
+
+                    <h1 className='loading_text'>Loading......</h1>
+                </div>
             }
         </div>
     );

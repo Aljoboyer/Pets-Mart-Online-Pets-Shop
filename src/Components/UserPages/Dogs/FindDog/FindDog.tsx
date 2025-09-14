@@ -24,7 +24,14 @@ const FindDog = () => {
             <UserNavbar></UserNavbar>
             <Row className="justify-content-center">
                 {
-                    alldogs?.map(pet => <Pets key={pet._id} pet={pet}></Pets>)
+                    alldogs && alldogs?.length > 0 ? <>
+                    {
+                         alldogs?.map(pet => <Pets key={pet._id} pet={pet}></Pets>)
+                    }
+                    </> : <div className='loading_div'>
+                    
+                        <h1 className='loading_text'>Loading......</h1>
+                    </div>
                 }
             </Row>
         </div>
