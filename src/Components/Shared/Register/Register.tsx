@@ -15,11 +15,11 @@ interface Inputs  {
 
 const Register = () => {
     const { register,reset, handleSubmit, formState: { errors } } = useForm<Inputs>();
-    const {RegisterUser} = useFirebase()
+    const {RegisterUser, isloading} = useFirebase()
     const navigate = useNavigate()
     const onSubmit: SubmitHandler<Inputs> = data => {
         RegisterUser(data.email, data.password, data.name, navigate)
-        reset()
+        // reset()
     }
     return (
         <div className='container-fluid'>
@@ -49,7 +49,7 @@ const Register = () => {
                 <Row className='d-flex justify-content-center'>
                    <Col lg={8} md={10} sm={12}>
                     <Row>
-                    <button type='submit' className=' fw-bold fs-6 loginbtn'>REGISTER</button>
+                    <button type='submit' disabled={isloading} className=' fw-bold fs-6 loginbtn'>{isloading ? 'Loading...': 'REGISTER'}</button>
                     </Row>
                    </Col>
                 </Row>

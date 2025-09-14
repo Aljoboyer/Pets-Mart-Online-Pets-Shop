@@ -37,10 +37,11 @@ const useFirebase = () =>  {
               )
         })
         .catch((error) => {
-            console.log('from register user', );
+            console.log('from register user', error );
+            const errMsg: any = error == 'FirebaseError: Firebase: Password should be at least 6 characters (auth/weak-password).' ? 'Password should be at least 6 characters' : 'User With This Email Already Exists.'
             Swal.fire(
                 'Error !',
-                'This email already used',
+                `${errMsg}`,
                 'error'
               )
             setRegError(error.message)
@@ -49,28 +50,40 @@ const useFirebase = () =>  {
     
     //Login User
     const LogInUser = (email: string, password: string, navigate:  NavigateFunction, location: any) => {
+        try {
+        setIsloading(true)
         fetch(`${BASE_URL}/user/checkUser?email=${email}`)
         .then(res => res.json())
         .then(data => {
             if(data.role === 'admin'){
-                setIsloading(true)
+            
                 signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
+                    setIsloading(false)
                     // Signed in 
                     const user = userCredential.user;
                     setUser(user)
 
-                navigate('/adminDashboard')
+                    navigate('/adminDashboard')
             
                 })
                 .catch((error) => {
-                    setLogError(error.message)
+                    setIsloading(false)
+                     const errMsg = error?.message == 'Firebase: Error (auth/wrong-password).' ? 'Wrong password.' : 'User not exists with this email'
+                        
+                        console.log('Checkhere ===>', error.message)
+
+                            Swal.fire(
+                            'Error !',
+                            `${errMsg}`,
+                            'error'
+                        )
                 }).finally(() => setIsloading(false));
             }
             else{
-                setIsloading(true)
                     signInWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
+                         setIsloading(false)
                         // Signed in 
                         const user = userCredential.user;
                         setUser(user)
@@ -79,10 +92,25 @@ const useFirebase = () =>  {
                 
                     })
                     .catch((error) => {
+                        setIsloading(false);
+                        const errMsg = error?.message == 'Firebase: Error (auth/wrong-password).' ? 'Wrong password.' : 'User not exists with this email'
+                        
+                        console.log('Checkhere ===>', error.message)
+
+                            Swal.fire(
+                            'Error !',
+                            `${errMsg}`,
+                            'error'
+                        )
+
                         setLogError(error.message)
                     }).finally(() => setIsloading(false));
             }
         })
+        } catch (error) {
+                setIsloading(false)
+            console.log('erorr catch ===>', error)
+        }
     }
     //google sign in
     const GoogleSignIn = () => {

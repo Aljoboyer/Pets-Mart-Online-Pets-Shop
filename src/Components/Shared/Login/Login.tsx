@@ -14,12 +14,12 @@ interface Inputs  {
 
 const Login: React.FC = () => {
     const { register,reset, handleSubmit, formState: { errors } } = useForm<Inputs>();
-    const {LogInUser} = useFirebase();
+    const {LogInUser, isloading} = useFirebase();
     const navigate = useNavigate();
     const location = useLocation();
     const onSubmit: SubmitHandler<Inputs> = data => {
         LogInUser(data.email, data.password, navigate, location);
-        reset()
+        // reset()
     }
 
 
@@ -45,7 +45,7 @@ const Login: React.FC = () => {
                 <Row className='d-flex justify-content-center'>
                    <Col lg={8} md={10} sm={12}>
                     <Row>
-                    <button type='submit' className=' fw-bold fs-6 loginbtn'>LOG-IN</button>
+                    <button type='submit' disabled={isloading} className=' fw-bold fs-6 loginbtn'>{isloading ? 'Loading...' : 'LOG-IN'}</button>
                     </Row>
                    </Col>
                 </Row>

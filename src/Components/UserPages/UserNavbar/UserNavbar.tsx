@@ -69,7 +69,6 @@ const UserNavbar: React.FC = () => {
                       <Row className='g-4'>
                         <Col as={Link} to="/DogsAccessories" className="navtext fw-bold" lg={12} md={6} sm={12}>DOGS</Col>
                         <Col as={Link} to="/CatAccessories" className="navtext fw-bold" lg={12} md={6} sm={12}>CATES</Col>
-                        <Col className="navtext fw-bold" lg={12} md={6} sm={12}>OTHER</Col>
                       </Row>
                     </Col>
                     <Col className="d-flex align-items-center" lg={6} md={6} sm={12}>
@@ -96,7 +95,11 @@ const UserNavbar: React.FC = () => {
       
             {
               user?.email ? <button onClick={LogOutHandler} className='btn btn-warning fw-bold  fs-6'>Log-Out <i className="fas fa-sign-out-alt"></i></button> : <><NavDropdown  className='fw-bold fs-6 text-dark' title="ACCOUNT" id="collasible-nav-dropdown">
-        <Nav.Link className='nav_btn mx-2' as={Link} to="/register"> <span className='regularcolor fw-bold fs-6'>REGISTER <i className="far fa-user-circle"></i></span> </Nav.Link><Nav.Link className='nav_btn my-2' as={Link} to="/login"> <span className='regularcolor fw-bold fs-6'>LOG-IN <i className="fas fa-sign-in-alt"></i></span> </Nav.Link>
+        
+        <Nav.Link className='nav_btn mx-2' as={Link} to="/register"> <span className='regularcolor fw-bold fs-6'>REGISTER <i className="far fa-user-circle"></i></span> </Nav.Link>
+
+        <Nav.Link className='nav_btn my-2 mx-2' as={Link} to="/login"> <span className='regularcolor fw-bold fs-6'>LOGIN <i className="fas fa-sign-in-alt"></i></span> </Nav.Link>
+
             </NavDropdown><i className="far fa-user-circle fa-2x regularcolor"></i></>
             }
           </Nav>

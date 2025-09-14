@@ -9,9 +9,10 @@ import NavRow from '../../UserNavbar/NavRow';
 import UserNavbar from '../../UserNavbar/UserNavbar';
 
 
-const FindCat = () => {
+const FindCat = () => { 
     const dispatch = useDispatch();
-    const obj: PetTypeData | string = JSON.stringify({type: 'cat', category: 'pets'})
+    const obj: PetTypeData | string = JSON.stringify({type: 'cat', category: 'pets'});
+    
     useEffect(() => {
         dispatch(GetPetsType(obj))
     },[dispatch, obj])
@@ -22,9 +23,13 @@ const FindCat = () => {
             <NavRow></NavRow>
             <UserNavbar></UserNavbar>
             <Row className="justify-content-center">
-                {
-                    allcats?.map(pet => <Pets key={pet._id} pet={pet}></Pets>)
-                }
+               {
+                allcats && allcats?.length > 0 ? <>
+                    {
+                        allcats?.map((pet):  any => <Pets key={pet._id} pet={pet}></Pets>)
+                    }
+                </> : <h1>Loading........</h1>
+               }
             </Row>
         </div>
     );
